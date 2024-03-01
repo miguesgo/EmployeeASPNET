@@ -20,7 +20,9 @@
                     string secondLetterRFC = value.Substring(1, 1);
                     string thirdLetterRFC = value.Substring(2, 1);
                     string fourthLetterRFC = value.Substring(3, 1);
-                    string fifthLetterRFC = value.Substring(4, 2);
+                    string yearRFC = value.Substring(4, 2);
+                    string monthRFC = value.Substring(6, 2);
+                    string dayRFC = value.Substring(8, 2);
                     //System.Diagnostics.Debug.WriteLine("AAAAAAAAAAAAAAaaa: " + secondLetter);
                     if (firstLetter == LastNameP.Substring(0, 1).ToUpper())
                     {
@@ -36,13 +38,22 @@
 
                         if (secondLetterRFC == firstVocal)
                         {
-                            System.Diagnostics.Debug.WriteLine("D: " + BornDate);
+                            System.Diagnostics.Debug.WriteLine("E: " + BornDate.ToString("MM"));
 
                             if (thirdLetterRFC == LastNameM.Substring(0, 1).ToUpper())
                             {
                                 if (fourthLetterRFC == Name.Substring(0, 1).ToUpper())
                                 {
-                                    _rfc = value;
+                                    if (yearRFC == BornDate.ToString("yy"))
+                                    {
+                                        if (monthRFC == BornDate.ToString("MM"))
+                                        {
+                                            if (dayRFC == BornDate.ToString("dd"))
+                                            {
+                                                _rfc = value;
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
