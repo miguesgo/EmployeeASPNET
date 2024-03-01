@@ -37,7 +37,12 @@
                         for (int i = 1; i < LastNameP.Length; i++)
                         {
                             //Retrive the first vocal of the first last name to compare to the 2nd letter in the RFC
-                            if ((LastNameP.Substring(i, 1).ToUpper() == "A") || (LastNameP.Substring(i, 1).ToUpper() == "E") || (LastNameP.Substring(i, 1).ToUpper() == "I") || (LastNameP.Substring(i, 1).ToUpper() == "O") || (LastNameP.Substring(i, 1).ToUpper() == "U")) {
+                            if ((LastNameP.Substring(i, 1).ToUpper() == "A") ||
+                                (LastNameP.Substring(i, 1).ToUpper() == "E") ||
+                                (LastNameP.Substring(i, 1).ToUpper() == "I") ||
+                                (LastNameP.Substring(i, 1).ToUpper() == "O") ||
+                                (LastNameP.Substring(i, 1).ToUpper() == "U")) {
+                                
                                 firstVocalRFC = LastNameP.Substring(i, 1).ToUpper();
                                 break;
                             }
