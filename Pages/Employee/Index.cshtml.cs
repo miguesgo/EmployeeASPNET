@@ -24,9 +24,10 @@ namespace CandidateTest.Pages.Employee
 
         public async Task OnGetAsync(string sortOrder)
         {
-            
+            // Retrieve the data stored from Employees
             IQueryable<Employees> EmployeesSort = from eS in _context.Employees select eS;
 
+            // The Employees are sorted by their born date in ascending order
             EmployeesSort = EmployeesSort.OrderBy(eS => eS.BornDate);
 
             Employees = await EmployeesSort.AsNoTracking().ToListAsync();
