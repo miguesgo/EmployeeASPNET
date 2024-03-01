@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CandidateTest.Data;
 using CandidateTest.Models;
+using Microsoft.Data.SqlClient;
 
 namespace CandidateTest.Pages.Employee
 {
@@ -19,14 +20,17 @@ namespace CandidateTest.Pages.Employee
             _context = context;
         }
 
-        public IList<Employees> Employees { get;set; } = default!;
+        public IList<Employees> Employees { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string sortOrder)
         {
-            if (_context.Employees != null)
-            {
-                Employees = await _context.Employees.ToListAsync();
-            }
+            
+            IQueryable<Employees> EmployeesSort = from eS in _context.Employees select eS;
+
+            EmployeesSort = EmployeesSort.OrderBy(eS => eS.BornDate);
+
+            Employees = await EmployeesSort.AsNoTracking().ToListAsync();
+
         }
     }
 }
