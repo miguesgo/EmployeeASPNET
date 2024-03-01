@@ -17,9 +17,11 @@
                     string firstLetter = value.Substring(0, 1);
                     string firstVocal = "";
                     string secondLetterRFC = value.Substring(1, 1);
-                    string thirdLetterRFC = value.Substring(1, 2);
+                    string thirdLetterRFC = value.Substring(2, 1);
+                    string fourthLetterRFC = value.Substring(3, 1);
                     //System.Diagnostics.Debug.WriteLine("AAAAAAAAAAAAAAaaa: " + secondLetter);
-                    if (firstLetter == LastNameP.Substring(0, 1)){
+                    if (firstLetter == LastNameP.Substring(0, 1).ToUpper())
+                    {
 
                         for (int i=1; i< LastNameP.Length; i++)
                         {
@@ -32,7 +34,15 @@
 
                         if (secondLetterRFC == firstVocal)
                         {
-                            _rfc = value;
+                            //System.Diagnostics.Debug.WriteLine("D: " + thirdLetterRFC);
+
+                            if (thirdLetterRFC == LastNameM.Substring(0, 1).ToUpper())
+                            {
+                                if (fourthLetterRFC == Name.Substring(0, 1).ToUpper())
+                                {
+                                    _rfc = value;
+                                }
+                            }
                         }
 
                         //_rfc = value;
