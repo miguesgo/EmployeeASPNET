@@ -6,7 +6,8 @@
 
         public int ID { get; set; }
         public string Name { get; set; }
-        public string LastName { get; set; }
+        public string LastNameP { get; set; }
+        public string LastNameM { get; set; }
         public string RFC {
             get { return _rfc; }
             set
@@ -18,13 +19,13 @@
                     string secondLetterRFC = value.Substring(1, 1);
                     string thirdLetterRFC = value.Substring(1, 2);
                     //System.Diagnostics.Debug.WriteLine("AAAAAAAAAAAAAAaaa: " + secondLetter);
-                    if (firstLetter == LastName.Substring(0, 1)){
+                    if (firstLetter == LastNameP.Substring(0, 1)){
 
-                        for (int i=1; i<LastName.Length; i++)
+                        for (int i=1; i< LastNameP.Length; i++)
                         {
 
-                            if ((LastName.Substring(i, 1).ToUpper() == "A") || (LastName.Substring(i, 1).ToUpper() == "E") || (LastName.Substring(i, 1).ToUpper() == "I") || (LastName.Substring(i, 1).ToUpper() == "O") || (LastName.Substring(i, 1).ToUpper() == "U")) {
-                                firstVocal = LastName.Substring(i, 1).ToUpper();
+                            if ((LastNameP.Substring(i, 1).ToUpper() == "A") || (LastNameP.Substring(i, 1).ToUpper() == "E") || (LastNameP.Substring(i, 1).ToUpper() == "I") || (LastNameP.Substring(i, 1).ToUpper() == "O") || (LastNameP.Substring(i, 1).ToUpper() == "U")) {
+                                firstVocal = LastNameP.Substring(i, 1).ToUpper();
                                 break;
                             }
                         }

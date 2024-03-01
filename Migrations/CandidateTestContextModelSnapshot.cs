@@ -33,7 +33,11 @@ namespace CandidateTest.Migrations
                     b.Property<DateTime>("BornDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("LastName")
+                    b.Property<string>("LastNameM")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastNameP")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

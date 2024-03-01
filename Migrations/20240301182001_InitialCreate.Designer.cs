@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CandidateTest.Migrations
 {
     [DbContext(typeof(CandidateTestContext))]
-    [Migration("20240301152118_InitialCreate")]
+    [Migration("20240301182001_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -36,7 +36,11 @@ namespace CandidateTest.Migrations
                     b.Property<DateTime>("BornDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("LastName")
+                    b.Property<string>("LastNameM")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastNameP")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
