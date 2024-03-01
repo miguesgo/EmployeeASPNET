@@ -8,6 +8,7 @@
         public string Name { get; set; }
         public string LastNameP { get; set; }
         public string LastNameM { get; set; }
+        public DateTime BornDate { get; set; }
         public string RFC {
             get { return _rfc; }
             set
@@ -19,6 +20,7 @@
                     string secondLetterRFC = value.Substring(1, 1);
                     string thirdLetterRFC = value.Substring(2, 1);
                     string fourthLetterRFC = value.Substring(3, 1);
+                    string fifthLetterRFC = value.Substring(4, 2);
                     //System.Diagnostics.Debug.WriteLine("AAAAAAAAAAAAAAaaa: " + secondLetter);
                     if (firstLetter == LastNameP.Substring(0, 1).ToUpper())
                     {
@@ -34,7 +36,7 @@
 
                         if (secondLetterRFC == firstVocal)
                         {
-                            //System.Diagnostics.Debug.WriteLine("D: " + thirdLetterRFC);
+                            System.Diagnostics.Debug.WriteLine("D: " + BornDate);
 
                             if (thirdLetterRFC == LastNameM.Substring(0, 1).ToUpper())
                             {
@@ -50,7 +52,6 @@
                 }
             }
         }
-        public DateTime BornDate { get; set; }
         public EmployeeStatus Status { get; set; }
 
     }
